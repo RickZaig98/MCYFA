@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christmas Lights</title>
+    <title>Christmas Greeting</title>
     <style>
         /* Global Reset */
         * {
@@ -20,7 +20,7 @@
 
         /* Christmas pattern container */
         .christmas-pattern {
-            background: url('https://example.com/christmas-pattern.png'); /* Add your custom Christmas pattern URL here */
+            background: url('https://raw.githubusercontent.com/RickZaig98/MCYFA/refs/heads/main/background.png'); /* Add your custom Christmas pattern URL here */
             background-size: cover;
             background-repeat: repeat;
             min-height: 100vh;
@@ -35,11 +35,53 @@
 
         /* Heading Styling */
         h1 {
-            font-size: 50px;
+            font-size: 45px;
             font-weight: bold;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
             letter-spacing: 2px;
-            margin-top: 0;
+            margin-bottom: 20px;
+            color: #ffda79;
+        }
+
+        /* Input Container Styling */
+        .input-container {
+            background: rgba(255, 255, 255, 0.1);
+            border: 3px dashed #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            display: inline-block;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* Input Styling */
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 250px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+        }
+
+        /* Button Styling */
+        button {
+            padding: 10px 20px;
+            background-color: #ff6347;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #e55337;
         }
 
         /* Christmas Lights animation */
@@ -94,11 +136,28 @@
             background-color: purple;
             animation-delay: -3s;
         }
+
+        /* Custom Message Styling */
+        .message {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ffda79;
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
     </style>
 </head>
 <body>
+
     <div class="christmas-pattern">
-        <h1>Merry Christmas!</h1>
+        <h1>It's Christmas Time! 🎅🎄</h1>
+        <div class="input-container">
+            <h2>Enter Your Name</h2>
+            <input type="text" id="nameInput" placeholder="Your Name">
+            <br>
+            <button onclick="showMessage()">Submit</button>
+        </div>
+        <div class="message" id="customMessage"></div>
     </div>
 
     <script>
@@ -116,6 +175,18 @@
             
             lightsContainer.appendChild(light);
         }
+
+        // Function to show custom message based on user input
+        function showMessage() {
+            const name = document.getElementById('nameInput').value;
+
+            if (name === '') {
+                document.getElementById('customMessage').textContent = 'Please enter your name.';
+            } else {
+                document.getElementById('customMessage').textContent = `Hello, ${name}! Welcome to the Christmas celebration! 🎄`;
+            }
+        }
     </script>
+
 </body>
 </html>
