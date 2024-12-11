@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Lights</title>
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Background with Christmas pattern */
+        body {
+            background-color: #2e2e2e;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Christmas pattern container */
+        .christmas-pattern {
+            background: url('https://example.com/christmas-pattern.png'); /* Add your custom Christmas pattern URL here */
+            background-size: cover;
+            background-repeat: repeat;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Heading Styling */
+        h1 {
+            font-size: 50px;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+            margin-top: 0;
+        }
+
+        /* Christmas Lights animation */
+        @keyframes lights {
+            0% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        .christmas-light {
+            position: absolute;
+            top: -10px;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: lights 5s infinite linear;
+        }
+
+        .christmas-light:nth-child(odd) {
+            animation-duration: 6s;
+            left: 10%;
+            background-color: red;
+            animation-delay: -2s;
+        }
+
+        .christmas-light:nth-child(2n) {
+            animation-duration: 7s;
+            left: 50%;
+            background-color: green;
+            animation-delay: -3s;
+        }
+
+        .christmas-light:nth-child(3n) {
+            animation-duration: 8s;
+            left: 70%;
+            background-color: yellow;
+            animation-delay: -1s;
+        }
+
+        .christmas-light:nth-child(4n) {
+            animation-duration: 9s;
+            left: 30%;
+            background-color: blue;
+            animation-delay: -4s;
+        }
+
+        .christmas-light:nth-child(5n) {
+            animation-duration: 6s;
+            left: 80%;
+            background-color: purple;
+            animation-delay: -3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="christmas-pattern">
+        <h1>Merry Christmas!</h1>
+    </div>
+
+    <script>
+        // Christmas Lights generation script with more dramatic random sizes
+        const lightsContainer = document.querySelector('.christmas-pattern');
+
+        for (let i = 0; i < 50; i++) {
+            const light = document.createElement('div');
+            light.classList.add('christmas-light');
+            
+            // Random size for each light (between 10px and 100px)
+            const size = Math.random() * 90 + 10; // Random size between 10px and 100px
+            light.style.width = `${size}px`;
+            light.style.height = `${size}px`;
+            
+            lightsContainer.appendChild(light);
+        }
+    </script>
+</body>
+</html>
