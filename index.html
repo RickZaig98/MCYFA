@@ -20,7 +20,7 @@
 
         /* Christmas pattern container */
         .christmas-pattern {
-            background: url('https://raw.githubusercontent.com/RickZaig98/MCYFA/refs/heads/main/background.png'); /* Add your custom Christmas pattern URL here */
+            background: url('https://example.com/christmas-pattern.png'); /* Add your custom Christmas pattern URL here */
             background-size: cover;
             background-repeat: repeat;
             min-height: 100vh;
@@ -176,6 +176,14 @@
             lightsContainer.appendChild(light);
         }
 
+        // Array of funny Christmas puns
+        const puns = [
+            "You sleigh me, {name}! 🎁",
+            "Yule be the life of the party, {name}! ✨",
+            "Hope you have a tree-mendously merry Christmas, {name}! 🎄",
+            "Santa's got nothing on you, {name}! 🎅"
+        ];
+
         // Function to show custom message based on user input
         function showMessage() {
             const name = document.getElementById('nameInput').value;
@@ -183,7 +191,8 @@
             if (name === '') {
                 document.getElementById('customMessage').textContent = 'Please enter your name.';
             } else {
-                document.getElementById('customMessage').textContent = `Hello, ${name}! Welcome to the Christmas celebration! 🎄`;
+                const randomPun = puns[Math.floor(Math.random() * puns.length)];
+                document.getElementById('customMessage').textContent = randomPun.replace('{name}', name);
             }
         }
     </script>
